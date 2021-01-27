@@ -16,20 +16,14 @@ namespace ProjetoPessoal1.Model {
 
         string UrlCon = @"server=127.0.0.1;user id=root;persistsecurityinfo=True;database=projetolojabd";
 
-        public Produto(string nomeProduto, double precoVenda, string fornecedor) {
-            //IdProduto = idProduto;
+        public Produto(int idProduto = 0, string nomeProduto = "", double precoVenda = 0, string fornecedor = "") {
+            IdProduto = idProduto;
             NomeProduto = nomeProduto;
             PrecoVenda = precoVenda;
             Fornecedor = fornecedor;
         }
 
-        public void CarregaValoresGrid() {
-            MySqlConnection conexao = new MySqlConnection(UrlCon);
-            conexao.Open();
-            
-        }
-
-
+        public Produto(){}
         public void CadastrarProduto() {
 
 
@@ -55,6 +49,23 @@ namespace ProjetoPessoal1.Model {
             }
 
             
+        }
+
+        public List<Produto> ListardoBanco() {
+            List<Produto> oList = new List<Produto>();
+            MySqlCommand cmd = Banco.AbrirBanco();
+            cmd.CommandText = "select * from produto";
+            var dataReader = cmd.ExecuteReader();
+            while (dataReader.Read()) {
+                oList.Add(new Produto(
+                        dataReader.GetInt32(0),
+                        dataReader.GetString(1),
+                        dataReader.GetDouble(2),
+                        dataReader.GetString(3)
+                    ));
+            }
+
+            return oList;
         }
 
 

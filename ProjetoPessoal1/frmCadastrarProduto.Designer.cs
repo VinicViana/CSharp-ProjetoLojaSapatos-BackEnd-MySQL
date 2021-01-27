@@ -32,17 +32,18 @@
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.txtPrecoVenda = new System.Windows.Forms.TextBox();
             this.txtFornecedor = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdProdutos = new System.Windows.Forms.DataGridView();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.txtCodProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNomeProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrecoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFornecedorProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAlterarProd = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnExcluir = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProdutos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,20 +114,20 @@
             this.txtFornecedor.TabIndex = 7;
             this.txtFornecedor.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // button1
+            // btnCadastrar
             // 
-            this.button1.Location = new System.Drawing.Point(121, 165);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 27);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "&Cadastrar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCadastrar.Location = new System.Drawing.Point(121, 165);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(112, 27);
+            this.btnCadastrar.TabIndex = 8;
+            this.btnCadastrar.Text = "&Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(242, -23);
+            this.pictureBox1.Location = new System.Drawing.Point(282, -10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(289, 256);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -134,48 +135,54 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // dataGridView1
+            // grdProdutos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txtCodProd,
             this.txtNomeProd,
             this.txtPrecoProd,
             this.txtFornecedorProd,
-            this.btnAlterarProd});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 321);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(543, 257);
-            this.dataGridView1.TabIndex = 10;
+            this.btnAlterarProd,
+            this.btnExcluir});
+            this.grdProdutos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grdProdutos.Location = new System.Drawing.Point(0, 321);
+            this.grdProdutos.Name = "grdProdutos";
+            this.grdProdutos.Size = new System.Drawing.Size(645, 257);
+            this.grdProdutos.TabIndex = 10;
+            this.grdProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProdutos_CellContentClick);
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(242, 165);
+            this.btnAlterar.Location = new System.Drawing.Point(239, 165);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(112, 27);
-            this.btnAlterar.TabIndex = 8;
-            this.btnAlterar.Text = "&Alterar";
+            this.btnAlterar.TabIndex = 11;
+            this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.button1_Click);
+            this.btnAlterar.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtCodProd
             // 
+            this.txtCodProd.DataPropertyName = "idProduto";
             this.txtCodProd.HeaderText = "Código";
             this.txtCodProd.Name = "txtCodProd";
             // 
             // txtNomeProd
             // 
+            this.txtNomeProd.DataPropertyName = "nomeProduto";
             this.txtNomeProd.HeaderText = "Nome";
             this.txtNomeProd.Name = "txtNomeProd";
             // 
             // txtPrecoProd
             // 
+            this.txtPrecoProd.DataPropertyName = "precoVenda";
             this.txtPrecoProd.HeaderText = "Preço de Venda";
             this.txtPrecoProd.Name = "txtPrecoProd";
             // 
             // txtFornecedorProd
             // 
+            this.txtFornecedorProd.DataPropertyName = "fornecedor";
             this.txtFornecedorProd.HeaderText = "Fornecedor";
             this.txtFornecedorProd.Name = "txtFornecedorProd";
             // 
@@ -184,14 +191,19 @@
             this.btnAlterarProd.HeaderText = "Alterar";
             this.btnAlterarProd.Name = "btnAlterarProd";
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.HeaderText = "Excluir";
+            this.btnExcluir.Name = "btnExcluir";
+            // 
             // frmCadastrarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 578);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(645, 578);
             this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.grdProdutos);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.txtFornecedor);
             this.Controls.Add(this.txtPrecoVenda);
             this.Controls.Add(this.txtNomeProduto);
@@ -203,8 +215,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmCadastrarProduto";
             this.Text = "Cadastrar Novo Produto";
+            this.Load += new System.EventHandler(this.frmCadastrarProduto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProdutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,14 +233,15 @@
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.TextBox txtPrecoVenda;
         private System.Windows.Forms.TextBox txtFornecedor;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdProdutos;
+        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtCodProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtNomeProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtPrecoProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtFornecedorProd;
         private System.Windows.Forms.DataGridViewButtonColumn btnAlterarProd;
-        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnExcluir;
     }
 }
